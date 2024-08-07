@@ -24,7 +24,7 @@ from configcat_openfeature_provider import ConfigCatProvider
 # Configure the OpenFeature API with the ConfigCat provider.
 api.set_provider(
     ConfigCatProvider(
-        "sdk-key",
+        "<YOUR-CONFIGCAT-SDK-KEY>",
         # Configure the ConfigCat SDK.
         ConfigCatOptions(
             polling_mode=PollingMode.auto_poll(60),
