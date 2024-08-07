@@ -1,6 +1,6 @@
 # ConfigCat OpenFeature Provider for Python
 
-[![CI](https://github.com/configcat/openfeature-python/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/configcat/openfeature-python/actions/workflows/ci.yml) 
+[![CI](https://github.com/configcat/openfeature-python/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/configcat/openfeature-python/actions/workflows/ci.yml) 
 [![PyPI](https://img.shields.io/pypi/v/configcat-openfeature-provider.svg)](https://pypi.python.org/pypi/configcat-openfeature-provider)
 [![PyPI](https://img.shields.io/pypi/pyversions/configcat-openfeature-provider.svg)](https://pypi.python.org/pypi/configcat-openfeature-provider)
 
