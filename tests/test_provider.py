@@ -20,7 +20,9 @@ def provider_client():
             "local",
             ConfigCatOptions(
                 flag_overrides=LocalFileFlagOverrides(
-                    file_path=path.join(path.dirname(__file__), "data/test_json_complex.json"),
+                    file_path=path.join(
+                        path.dirname(__file__), "data/test_json_complex.json"
+                    ),
                     override_behaviour=OverrideBehaviour.LocalOnly,
                 ),
                 polling_mode=PollingMode.auto_poll(60),

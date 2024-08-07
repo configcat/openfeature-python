@@ -17,6 +17,9 @@ class ConfigCatProvider(AbstractProvider):
     def get_metadata(self) -> Metadata:
         return Metadata("ConfigCatProvider")
 
+    def shutdown(self) -> None:
+        self.client.close()
+
     def resolve_boolean_details(
         self,
         flag_key: str,
@@ -80,7 +83,7 @@ class ConfigCatProvider(AbstractProvider):
         evaluation_context: typing.Optional[EvaluationContext] = None,
     ) -> FlagResolutionDetails[typing.Union[dict, list]]:
         user = self.__ctx_to_user(evaluation_context)
-        details = self.client.get_value_details(flag_key, default_value, user)
+        details = self.client.get_value_details(flag_key, "", user)
 
         if not isinstance(details.value, str):
             return self.__mismatched_type(default_value)
