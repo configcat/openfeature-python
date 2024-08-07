@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "configcat-openfeature-provider"
+version = "0.1.0"
+description = "ConfigCat OpenFeature Provider for Python"
+readme = "README.md"
+authors = [{ name = "ConfigCat", email = "developer@configcat.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+]
+keywords = [
+    "feature",
+    "flags",
+    "toggles",
+    "configcat",
+    "openfeature",
+    "provider",
+]
+dependencies = [
+    "openfeature-sdk>=0.7",
+    "configcat-client>=9"
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/configcat/openfeature-python"
+Repository = "https://github.com/configcat/openfeature-python.git"
+Issues = "https://github.com/configcat/openfeature-python/issues"
+Changelog = "https://github.com/configcat/openfeature-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["configcat_openfeature_provider"]
+
+[tool.mypy]
+files = "configcat_openfeature_provider"
+namespace_packages = true
+explicit_package_bases = true
+local_partial_types = true
+pretty = true
+strict = true
+disallow_any_generics = false

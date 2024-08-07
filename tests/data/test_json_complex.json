@@ -1,0 +1,68 @@
+{
+    "p": {
+        "s": "s449fLWNwiEFQ/AqfRj13pPHVdV9g3h0HAFzWtjpZgE="
+    },
+    "f": {
+        "disabledFeature": {
+            "v": {
+                "b": false
+            },
+            "i": "v-disabled-f",
+            "t": 0,
+            "r": [
+                {
+                    "c": [
+                        {
+                            "u": {
+                                "a": "Identifier",
+                                "c": 2,
+                                "l": ["@matching.com"]
+                            }
+                        }
+                    ],
+                    "s": {
+                        "v": {
+                            "b": true
+                        },
+                        "i": "v-disabled-t"
+                    }
+                }
+            ]
+        },
+        "enabledFeature": {
+            "t": 0,
+            "i": "v-enabled",
+            "v": {
+                "b": true
+            }
+        },
+        "intSetting": {
+            "t": 2,
+            "i": "v-int",
+            "v": {
+                "i": 5
+            }
+        },
+        "doubleSetting": {
+            "t": 3,
+            "i": "v-double",
+            "v": {
+                "d": 1.2
+            }
+        },
+        "stringSetting": {
+            "t": 1,
+            "i": "v-string",
+            "v": {
+                "s": "test"
+            }
+        },
+        "objectSetting": {
+            "t": 1,
+            "i": "v-object",
+            "v": {
+                "s": "{ \"bool_field\": true, \"text_field\": \"value\" }"
+            }
+        }
+    }
+}

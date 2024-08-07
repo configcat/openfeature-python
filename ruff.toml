@@ -1,0 +1,5 @@
+[lint.isort]
+known-first-party = ["configcat_openfeature_provider"]
+
+[lint.pyupgrade]
+keep-runtime-typing = true
