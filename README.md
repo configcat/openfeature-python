@@ -4,7 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/configcat-openfeature-provider.svg)](https://pypi.python.org/pypi/configcat-openfeature-provider)
 [![PyPI](https://img.shields.io/pypi/pyversions/configcat-openfeature-provider.svg)](https://pypi.python.org/pypi/configcat-openfeature-provider)
 
-This repository contains an OpenFeature provider that allows the usage of [ConfigCat](https://configcat.com) with the [OpenFeature Python SDK](https://github.com/open-feature/python-sdk).
+This repository contains an OpenFeature provider that allows [ConfigCat](https://configcat.com) to be used with the [OpenFeature Python SDK](https://github.com/open-feature/python-sdk).
 
 ## Installation
 

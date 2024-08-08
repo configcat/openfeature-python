@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "configcat-openfeature-provider"
-version = "0.1.0"
+version = "1.0.0"
 description = "ConfigCat OpenFeature Provider for Python"
 readme = "README.md"
 authors = [{ name = "ConfigCat", email = "developer@configcat.com" }]
