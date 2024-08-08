@@ -128,7 +128,7 @@ class ConfigCatProvider(AbstractProvider):
 
     @staticmethod
     def __ctx_to_user(ctx: typing.Optional[EvaluationContext]) -> typing.Optional[User]:
-        if ctx is None:
+        if ctx is None or (not ctx.targeting_key and not ctx.attributes):
             return None
 
         email = ctx.attributes.get("Email")
