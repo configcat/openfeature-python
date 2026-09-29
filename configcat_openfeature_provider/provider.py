@@ -6,12 +6,15 @@ from configcatclient.evaluationdetails import EvaluationDetails
 from configcatclient.user import User
 from openfeature.evaluation_context import EvaluationContext
 from openfeature.exception import ErrorCode
-from openfeature.flag_evaluation import FlagResolutionDetails, Reason
+from openfeature.flag_evaluation import FlagResolutionDetails, Reason, FlagValueType
 from openfeature.provider import AbstractProvider, Metadata
+from collections.abc import Mapping, Sequence
 
 
 class ConfigCatProvider(AbstractProvider):
-    def __init__(self, sdk_key: str, options: typing.Optional[ConfigCatOptions] = None):
+    def __init__(self, sdk_key: str, options: typing.Optional[ConfigCatOptions] = None, *args: typing.Any,
+                 **kwargs: typing.Any):
+        super().__init__(*args, **kwargs)
         self.client = ConfigCatClient.get(sdk_key, options)
 
     def get_metadata(self) -> Metadata:
@@ -79,9 +82,11 @@ class ConfigCatProvider(AbstractProvider):
     def resolve_object_details(
         self,
         flag_key: str,
-        default_value: typing.Union[dict, list],
-        evaluation_context: typing.Optional[EvaluationContext] = None,
-    ) -> FlagResolutionDetails[typing.Union[dict, list]]:
+        default_value: Sequence[FlagValueType] | Mapping[str, FlagValueType],
+        evaluation_context: EvaluationContext | None = None,
+    ) -> FlagResolutionDetails[
+        Sequence[FlagValueType] | Mapping[str, FlagValueType]
+    ]:
         user = self.__ctx_to_user(evaluation_context)
         details = self.client.get_value_details(flag_key, "", user)
 

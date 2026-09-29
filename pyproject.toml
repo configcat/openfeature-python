@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "configcat-openfeature-provider"
-version = "1.0.0"
+version = "1.1.0"
 description = "ConfigCat OpenFeature Provider for Python"
 readme = "README.md"
 authors = [{ name = "ConfigCat", email = "developer@configcat.com" }]
@@ -13,12 +13,12 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development",
     "Topic :: Software Development :: Libraries",
 ]
@@ -31,10 +31,10 @@ keywords = [
     "provider",
 ]
 dependencies = [
-    "openfeature-sdk>=0.7",
-    "configcat-client>=9"
+    "openfeature-sdk>=0.10",
+    "configcat-client>=10"
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 [project.urls]
 Homepage = "https://github.com/configcat/openfeature-python"
