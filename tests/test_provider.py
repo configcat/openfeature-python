@@ -1,7 +1,6 @@
 from os import path
 
 import pytest
-
 from configcatclient import ConfigCatOptions, PollingMode
 from configcatclient.localfiledatasource import LocalFileFlagOverrides
 from configcatclient.overridedatasource import OverrideBehaviour

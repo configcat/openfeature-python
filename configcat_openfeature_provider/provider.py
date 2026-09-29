@@ -1,18 +1,18 @@
 import json
 import typing
+from collections.abc import Mapping, Sequence
 
 from configcatclient import ConfigCatClient, ConfigCatOptions
 from configcatclient.evaluationdetails import EvaluationDetails
 from configcatclient.user import User
 from openfeature.evaluation_context import EvaluationContext
 from openfeature.exception import ErrorCode
-from openfeature.flag_evaluation import FlagResolutionDetails, Reason, FlagValueType
+from openfeature.flag_evaluation import FlagResolutionDetails, FlagValueType, Reason
 from openfeature.provider import AbstractProvider, Metadata
-from collections.abc import Mapping, Sequence
 
 
 class ConfigCatProvider(AbstractProvider):
-    def __init__(self, sdk_key: str, options: typing.Optional[ConfigCatOptions] = None, *args: typing.Any,
+    def __init__(self, sdk_key: str, options: ConfigCatOptions | None = None, *args: typing.Any,
                  **kwargs: typing.Any):
         super().__init__(*args, **kwargs)
         self.client = ConfigCatClient.get(sdk_key, options)
@@ -27,7 +27,7 @@ class ConfigCatProvider(AbstractProvider):
         self,
         flag_key: str,
         default_value: bool,
-        evaluation_context: typing.Optional[EvaluationContext] = None,
+        evaluation_context: EvaluationContext | None = None,
     ) -> FlagResolutionDetails[bool]:
         user = self.__ctx_to_user(evaluation_context)
         details = self.client.get_value_details(flag_key, default_value, user)
@@ -41,7 +41,7 @@ class ConfigCatProvider(AbstractProvider):
         self,
         flag_key: str,
         default_value: str,
-        evaluation_context: typing.Optional[EvaluationContext] = None,
+        evaluation_context: EvaluationContext | None = None,
     ) -> FlagResolutionDetails[str]:
         user = self.__ctx_to_user(evaluation_context)
         details = self.client.get_value_details(flag_key, default_value, user)
@@ -55,7 +55,7 @@ class ConfigCatProvider(AbstractProvider):
         self,
         flag_key: str,
         default_value: int,
-        evaluation_context: typing.Optional[EvaluationContext] = None,
+        evaluation_context: EvaluationContext | None = None,
     ) -> FlagResolutionDetails[int]:
         user = self.__ctx_to_user(evaluation_context)
         details = self.client.get_value_details(flag_key, default_value, user)
@@ -69,7 +69,7 @@ class ConfigCatProvider(AbstractProvider):
         self,
         flag_key: str,
         default_value: float,
-        evaluation_context: typing.Optional[EvaluationContext] = None,
+        evaluation_context: EvaluationContext | None = None,
     ) -> FlagResolutionDetails[float]:
         user = self.__ctx_to_user(evaluation_context)
         details = self.client.get_value_details(flag_key, default_value, user)
@@ -132,7 +132,7 @@ class ConfigCatProvider(AbstractProvider):
         )
 
     @staticmethod
-    def __ctx_to_user(ctx: typing.Optional[EvaluationContext]) -> typing.Optional[User]:
+    def __ctx_to_user(ctx: EvaluationContext | None) -> User | None:
         if ctx is None or (not ctx.targeting_key and not ctx.attributes):
             return None
 
